@@ -7,9 +7,13 @@
     <data readOnly="true">
         <collection id="employeesesDc"
                     class="com.company.doc.entity.Employees">
-            <view>
-                <property name="number"/>
-                <property name="user" view="_minimal"/>
+            <view extends="_local">
+                <property name="user" view="_minimal">
+                    <property name="firstName"/>
+                    <property name="lastName"/>
+                    <property name="middleName"/>
+                    <property name="email"/>
+                </property>
                 <property name="subdivision" view="_minimal"/>
             </view>
             <loader id="employeesesDl">
@@ -39,6 +43,7 @@
             <columns>
                 <column id="number"/>
                 <column id="user"/>
+                <column id="phone"/>
                 <column id="subdivision"/>
             </columns>
             <rowsCount/>

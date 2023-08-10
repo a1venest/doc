@@ -18,8 +18,7 @@ import javax.validation.constraints.NotNull;
 public class DocumentType extends StandardEntity {
     private static final long serialVersionUID = -4179017954331132271L;
 
-    @NotNull
-    @Column(name = "CODE", nullable = false)
+    @Column(name = "CODE")
     private String code;
 
     @NotNull

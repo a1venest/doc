@@ -8,12 +8,11 @@ import com.haulmont.cuba.core.entity.annotation.PublishEntityChangedEvents;
 import com.haulmont.cuba.security.entity.User;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 
-@Listeners("doc_EmployeesNumberCreator")
-@PublishEntityChangedEvents
 @Table(name = "DOC_EMPLOYEES")
 @Entity(name = "doc_Employees")
+@Listeners("doc_EmployeesNumberCreator")
+@PublishEntityChangedEvents
 @NamePattern("%s|user")
 public class Employees extends StandardEntity {
     private static final long serialVersionUID = 4211176996350799080L;
@@ -21,47 +20,27 @@ public class Employees extends StandardEntity {
     @Column(name = "NUMBER_")
     private String number;
 
-    @NotNull
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "USER_ID")
+    @OneToOne(fetch = FetchType.LAZY)
     private User user;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "SUBDIVISION_ID")
-    private Subdivisions subdivision;
-
-    @Column(name = "EMAIL")
-    private String email;
 
     @Column(name = "PHONE")
     private String phone;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "SUBDIVISION_ID")
+    private Subdivisions subdivision;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "PHOTO_ID")
     private FileDescriptor photo;
-
-    public Subdivisions getSubdivision() {
-        return subdivision;
-    }
-
-    public void setSubdivision(Subdivisions subdivision) {
-        this.subdivision = subdivision;
-    }
-
-    public User getUser() {
-        return user;
-    }
 
     public void setUser(User user) {
         this.user = user;
     }
 
-    public FileDescriptor getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(FileDescriptor photo) {
-        this.photo = photo;
+    public User getUser() {
+        return user;
     }
 
     public String getPhone() {
@@ -72,12 +51,20 @@ public class Employees extends StandardEntity {
         this.phone = phone;
     }
 
-    public String getEmail() {
-        return email;
+    public Subdivisions getSubdivision() {
+        return subdivision;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setSubdivision(Subdivisions subdivision) {
+        this.subdivision = subdivision;
+    }
+
+    public FileDescriptor getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(FileDescriptor photo) {
+        this.photo = photo;
     }
 
     public String getNumber() {

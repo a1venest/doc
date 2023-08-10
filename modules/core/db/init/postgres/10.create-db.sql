@@ -9,33 +9,13 @@ create table DOC_DOCUMENT_TYPE (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    CODE varchar(255) not null,
+    CODE varchar(255),
     NAME varchar(255) not null,
     --
     primary key (ID)
 )^
 -- end DOC_DOCUMENT_TYPE
--- begin DOC_EMPLOYEES
-create table DOC_EMPLOYEES (
-    ID uuid,
-    VERSION integer not null,
-    CREATE_TS timestamp,
-    CREATED_BY varchar(50),
-    UPDATE_TS timestamp,
-    UPDATED_BY varchar(50),
-    DELETE_TS timestamp,
-    DELETED_BY varchar(50),
-    --
-    NUMBER_ varchar(255),
-    USER_ID uuid not null,
-    SUBDIVISION_ID uuid,
-    EMAIL varchar(255),
-    PHONE varchar(255),
-    PHOTO_ID uuid,
-    --
-    primary key (ID)
-)^
--- end DOC_EMPLOYEES
+
 -- begin DOC_SUBDIVISIONS
 create table DOC_SUBDIVISIONS (
     ID uuid,
@@ -47,7 +27,7 @@ create table DOC_SUBDIVISIONS (
     DELETE_TS timestamp,
     DELETED_BY varchar(50),
     --
-    CODE varchar(255) not null,
+    CODE varchar(255),
     NAME varchar(255) not null,
     DIVISION_HEAD_ID uuid,
     LEAD_DIVISION_ID uuid,
@@ -85,3 +65,23 @@ create table DOCS_OUTGOING_DOCUMENTS (
     primary key (ID)
 )^
 -- end DOCS_OUTGOING_DOCUMENTS
+-- begin DOC_EMPLOYEES
+create table DOC_EMPLOYEES (
+    ID uuid,
+    VERSION integer not null,
+    CREATE_TS timestamp,
+    CREATED_BY varchar(50),
+    UPDATE_TS timestamp,
+    UPDATED_BY varchar(50),
+    DELETE_TS timestamp,
+    DELETED_BY varchar(50),
+    --
+    NUMBER_ varchar(255),
+    USER_ID uuid,
+    PHONE varchar(255),
+    SUBDIVISION_ID uuid,
+    PHOTO_ID uuid,
+    --
+    primary key (ID)
+)^
+-- end DOC_EMPLOYEES

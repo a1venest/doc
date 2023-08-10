@@ -8,7 +8,7 @@ import com.haulmont.cuba.core.entity.annotation.PublishEntityChangedEvents;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Listeners("doc_SubdivisionCodeCreator")
+@Listeners("doc_SubdivisionsCodeCreator")
 @PublishEntityChangedEvents
 @Table(name = "DOC_SUBDIVISIONS")
 @Entity(name = "doc_Subdivisions")
@@ -16,8 +16,7 @@ import javax.validation.constraints.NotNull;
 public class Subdivisions extends StandardEntity {
     private static final long serialVersionUID = -2399479284696886815L;
 
-    @NotNull
-    @Column(name = "CODE", nullable = false)
+    @Column(name = "CODE")
     private String code;
 
     @NotNull
@@ -31,6 +30,7 @@ public class Subdivisions extends StandardEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "LEAD_DIVISION_ID")
     private Subdivisions leadDivision;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "OUTGOING_DOCUMENTS_ID")
     private OutgoingDocuments outgoingDocuments;
