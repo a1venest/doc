@@ -12,7 +12,7 @@
                 <property name="theme"/>
                 <property name="executor"/>
                 <property name="name"/>
-                <property name="autor"/>
+                <property name="author"/>
                 <property name="dateOfCreation"/>
             </view>
             <loader id="outgoingDocumentsesDl">
@@ -44,7 +44,7 @@
                 <column id="theme"/>
                 <column id="executor"/>
                 <column id="name"/>
-                <column id="autor"/>
+                <column id="author"/>
                 <column id="dateOfCreation"/>
             </columns>
             <rowsCount/>

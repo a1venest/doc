@@ -24,7 +24,12 @@
     </data>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="scrollBox" spacing="true">
+    <layout expand="tabSheet" spacing="true">
+        <tabSheet id="tabSheet">
+            <tab id="scrollTab"
+            caption="Outgoing Documents"
+            margin="true"
+            spacing="true">
         <scrollBox id="scrollBox" spacing="true">
             <form id="form" dataContainer="outgoingDocumentsDc">
                 <column width="350px">
@@ -34,33 +39,32 @@
                             <action id="clear" type="picker_clear"/>
                         </actions>
                     </pickerField>
-                    <textField id="regNumberField" property="regNumber"/>
-                    <dateField id="regDataField" property="regData"/>
+                    <textField id="regNumberField" property="regNumber" editable="false"/>
+                    <dateField id="regDataField" property="regData" editable="false"/>
                     <textField id="whomField" property="whom"/>
                     <textField id="themeField" property="theme"/>
                     <textField id="addresseeField" property="addressee"/>
-                    <textField id="executorField" property="executor"/>
+                    <textField id="executorField" property="executor" editable="false"/>
                     <textField id="signatoryField" property="signatory"/>
                     <textField id="noteField" property="note"/>
-                    <textField id="nameField" property="name"/>
-                    <textField id="autorField" property="autor"/>
-                    <dateField id="dateOfCreationField" property="dateOfCreation"/>
-                    <dateField id="dateOfChangeField" property="dateOfChange"/>
+                    <textField id="nameField" property="name" editable="false"/>
+                    <textField id="authorField" property="author"/>
+                    <dateField id="dateOfCreationField" property="dateOfCreation" editable="false"/>
+                    <dateField id="dateOfChangeField" property="dateOfChange" editable="false"/>
                 </column>
             </form>
-        </scrollBox>
-        <groupBox id="procActionsBox"
+        </scrollBox></tab>
+        <tab id="procActionsBox"
                   caption="msg://process"
                   spacing="true"
-                  width="AUTO"
-                  orientation="vertical">
+                 margin="true">
             <fragment id="procActionsFragment"
                       screen="bpm_ProcActionsFragment"/>
-        </groupBox>
-        <groupBox caption="msg://attachments"
-                  height="300px"
+        </tab>
+        <tab caption="msg://attachments"
+                  id="attachmentsTab"
                   spacing="true"
-                  width="700px">
+                 margin="true">
             <table id="attachmentsTable"
                    dataContainer="procAttachmentsDc"
                    height="100%"
@@ -73,7 +77,8 @@
                             maxTextLength="50"/>
                 </columns>
             </table>
-        </groupBox>
+        </tab>
+        </tabSheet>
         <hbox id="editActions" spacing="true">
             <button id="commitAndCloseBtn" action="windowCommitAndClose"/>
             <button id="closeBtn" action="windowClose"/>

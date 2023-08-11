@@ -57,7 +57,7 @@ create table DOCS_OUTGOING_DOCUMENTS (
     SIGNATORY varchar(255),
     NOTE varchar(255),
     NAME varchar(255),
-    AUTOR varchar(255),
+    AUTHOR varchar(255),
     DATE_OF_CREATION date,
     DATE_OF_CHANGE date,
     STATE varchar(255),

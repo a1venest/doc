@@ -50,8 +50,8 @@ public class OutgoingDocuments extends StandardEntity {
     @Column(name = "NAME")
     private String name;
 
-    @Column(name = "AUTOR")
-    private String autor;
+    @Column(name = "AUTHOR")
+    private String author;
 
     @Temporal(TemporalType.DATE)
     @Column(name = "DATE_OF_CREATION")
@@ -72,12 +72,12 @@ public class OutgoingDocuments extends StandardEntity {
         this.subdivision = subdivision;
     }
 
-    public String getAutor() {
-        return autor;
+    public String getAuthor() {
+        return author;
     }
 
-    public void setAutor(String autor) {
-        this.autor = autor;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public String getExecutor() {
@@ -107,7 +107,8 @@ public class OutgoingDocuments extends StandardEntity {
     public String getName() {
         return name;
     }
-    public void setName(String name){this.name = name;}
+    public void setName(String name){this.name = this.docType + " № " + this.regNumber + " от " +this.regData +
+            " в " + this.addressee + " " + this.theme;}
 
     public Date getDateOfChange() {
         return dateOfChange;

@@ -35,6 +35,7 @@ public class Subdivisions extends StandardEntity {
     @JoinColumn(name = "OUTGOING_DOCUMENTS_ID")
     private OutgoingDocuments outgoingDocuments;
 
+
     public OutgoingDocuments getOutgoingDocuments() {
         return outgoingDocuments;
     }

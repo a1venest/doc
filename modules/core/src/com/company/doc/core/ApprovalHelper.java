@@ -6,6 +6,7 @@ import com.haulmont.cuba.core.Persistence;
 import com.haulmont.cuba.core.Transaction;
 
 import javax.inject.Inject;
+import java.util.Date;
 import java.util.UUID;
 
 @Component(ApprovalHelper.NAME)
@@ -24,11 +25,51 @@ public class ApprovalHelper {
             tx.commit();
         }
     }
-    public void updateAutor(UUID entityId, String autor) {
+    public void updateAuthor(UUID entityId, String author) {
         try (Transaction tx = persistence.getTransaction()) {
             OutgoingDocuments outgoingDocuments = persistence.getEntityManager().find(OutgoingDocuments.class, entityId);
             if (outgoingDocuments != null) {
-                outgoingDocuments.setAutor(autor);
+                outgoingDocuments.setAuthor(author);
+            }
+            tx.commit();
+        }
+    }
+    public void updateExecutor(UUID entityId,String author)
+    {
+        try (Transaction tx = persistence.getTransaction()) {
+            OutgoingDocuments outgoingDocuments = persistence.getEntityManager().find(OutgoingDocuments.class, entityId);
+            if (outgoingDocuments != null) {
+                outgoingDocuments.setExecutor(author);
+            }
+            tx.commit();
+        }
+    }
+    public void updateRegData(UUID entityId, Date regData)
+    {
+        try (Transaction tx = persistence.getTransaction()) {
+            OutgoingDocuments outgoingDocuments = persistence.getEntityManager().find(OutgoingDocuments.class, entityId);
+            if (outgoingDocuments != null) {
+                outgoingDocuments.setRegData(regData);
+            }
+            tx.commit();
+        }
+    }
+    public void updateDateOfCreation(UUID entityId, Date dateOfCreation)
+    {
+        try (Transaction tx = persistence.getTransaction()) {
+            OutgoingDocuments outgoingDocuments = persistence.getEntityManager().find(OutgoingDocuments.class, entityId);
+            if (outgoingDocuments != null) {
+                outgoingDocuments.setDateOfCreation(dateOfCreation);
+            }
+            tx.commit();
+        }
+    }
+    public void updateDateOfChange(UUID entityId, Date dateOfChange)
+    {
+        try (Transaction tx = persistence.getTransaction()) {
+            OutgoingDocuments outgoingDocuments = persistence.getEntityManager().find(OutgoingDocuments.class, entityId);
+            if (outgoingDocuments != null) {
+                outgoingDocuments.setDateOfChange(dateOfChange);
             }
             tx.commit();
         }
