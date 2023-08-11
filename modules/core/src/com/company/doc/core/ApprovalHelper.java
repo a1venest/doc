@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Component(ApprovalHelper.NAME)
 public class ApprovalHelper {
-    public static final String NAME = "demo_ApprovalHelper";
+    public static final String NAME = "doc_ApprovalHelper";
 
     @Inject
     private Persistence persistence;
@@ -20,6 +20,15 @@ public class ApprovalHelper {
             OutgoingDocuments outgoingDocuments = persistence.getEntityManager().find(OutgoingDocuments.class, entityId);
             if (outgoingDocuments != null) {
                 outgoingDocuments.setState(state);
+            }
+            tx.commit();
+        }
+    }
+    public void updateAutor(UUID entityId, String autor) {
+        try (Transaction tx = persistence.getTransaction()) {
+            OutgoingDocuments outgoingDocuments = persistence.getEntityManager().find(OutgoingDocuments.class, entityId);
+            if (outgoingDocuments != null) {
+                outgoingDocuments.setAutor(autor);
             }
             tx.commit();
         }

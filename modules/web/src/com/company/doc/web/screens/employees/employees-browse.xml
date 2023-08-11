@@ -15,6 +15,7 @@
                     <property name="email"/>
                 </property>
                 <property name="subdivision" view="_minimal"/>
+                <property name="photo" view="_base" />
             </view>
             <loader id="employeesesDl">
                 <query>

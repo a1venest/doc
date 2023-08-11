@@ -19,7 +19,7 @@ public class DocumentTypeCodeCreator implements BeforeInsertEntityListener<Docum
     @Override
     public void onBeforeInsert(DocumentType entity, EntityManager entityManager) {
 
-        entity.setCode("" + uniqueNumbersAPI.getNextNumber("Code"));
+        entity.setCode("ВД00000" + uniqueNumbersAPI.getNextNumber("Code"));
 
 
     }
