@@ -6,5 +6,6 @@
         <class>com.company.doc.entity.Employees</class>
         <class>com.company.doc.entity.Subdivisions</class>
         <class>com.company.doc.entity.OutgoingDocuments</class>
+        <class>com.company.doc.entity.HasProcessState</class>
     </persistence-unit>
 </persistence>

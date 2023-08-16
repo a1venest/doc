@@ -48,19 +48,22 @@ create table DOCS_OUTGOING_DOCUMENTS (
     DELETED_BY varchar(50),
     --
     DOC_TYPE_ID uuid not null,
-    EXECUTOR_ID varchar(255),
+    INITIATOR_ID uuid,
+    EXECUTOR_ID uuid,
+    DIVISIONHEAD_ID uuid,
     REG_NUMBER varchar(255),
     REG_DATA date,
     WHOM varchar(255),
     THEME varchar(255),
     ADDRESSEE varchar(255),
-    SIGNATORY varchar(255),
+    SIGNATORY uuid,
     NOTE varchar(255),
     NAME varchar(255),
     AUTHOR varchar(255),
     DATE_OF_CREATION date,
     DATE_OF_CHANGE date,
     STATE varchar(255),
+    ACCEPTANCE_REQUIRED boolean,
     --
     primary key (ID)
 )^

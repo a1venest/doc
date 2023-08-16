@@ -19,11 +19,20 @@ public class OutgoingDocuments extends StandardEntity {
     @JoinColumn(name = "DOC_TYPE_ID")
     private DocumentType docType;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "INITIATOR_ID")
+    private Employees initiator;
+
     @OneToMany(mappedBy = "outgoingDocuments")
     private List<Subdivisions> subdivision;
 
-    @Column(name = "EXECUTOR_ID")
-    private String executor;
+    @JoinColumn(name = "EXECUTOR_ID")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Employees executor;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn
+    private Employees divisionHead;
 
     @Column(name = "REG_NUMBER")
     private String regNumber;
@@ -41,8 +50,9 @@ public class OutgoingDocuments extends StandardEntity {
     @Column(name = "ADDRESSEE")
     private String addressee;
 
-    @Column(name = "SIGNATORY")
-    private String signatory;
+    @JoinColumn(name = "SIGNATORY")
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Employees signatory;
 
     @Column(name = "NOTE")
     private String note;
@@ -64,28 +74,55 @@ public class OutgoingDocuments extends StandardEntity {
     @Column(name = "STATE")
     private String state;
 
+    @Column(name = "ACCEPTANCE_REQUIRED")
+    protected Boolean acceptanceRequired = false;
+
+    public void setDivisionHead(Employees divisionHead) {
+        this.divisionHead = divisionHead;
+    }
+
+    public Employees getDivisionHead() {
+        return divisionHead;
+    }
+
+    public void setExecutor(Employees executor) {
+        this.executor = executor;
+    }
+
+    public Employees getExecutor() {
+        return executor;
+    }
+
+    public void setSignatory(Employees signatory) {
+        this.signatory = signatory;
+    }
+
+    public Employees getSignatory() {
+        return signatory;
+    }
+
+    public Employees getInitiator() {
+        return initiator;
+    }
+
+    public void setInitiator(Employees initiator) {
+        this.initiator = initiator;
+    }
+
+    public void setAcceptanceRequired(Boolean acceptanceRequired) {
+        this.acceptanceRequired = acceptanceRequired;
+    }
+
+    public Boolean getAcceptanceRequired() {
+        return acceptanceRequired;
+    }
+
     public void setState(String state) {
         this.state = state;
     }
 
     public String getState() {
         return state;
-    }
-
-    public void setExecutor(String executor) {
-        this.executor = executor;
-    }
-
-    public String getExecutor() {
-        return executor;
-    }
-
-    public void setSignatory(String signatory) {
-        this.signatory = signatory;
-    }
-
-    public String getSignatory() {
-        return signatory;
     }
 
     public void setAuthor(String author) {
