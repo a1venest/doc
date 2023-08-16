@@ -10,6 +10,7 @@
                 <property name="user" view="_minimal"/>
                 <property name="subdivision" view="_minimal"/>
                 <property name="photo" view="_minimal"/>
+                <property name="outgoingDocuments" view="_minimal"/>
             </view>
             <loader/>
         </instance>
@@ -34,6 +35,7 @@
                     </actions>
                 </pickerField>
                 <upload id="photoField" fileStoragePutMode="IMMEDIATE" property="photo" showFileName="true"/>
+                <pickerField id="outgoingDocumentsField" property="outgoingDocuments"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

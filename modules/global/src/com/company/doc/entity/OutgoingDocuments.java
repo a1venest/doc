@@ -22,6 +22,9 @@ public class OutgoingDocuments extends StandardEntity {
     @OneToMany(mappedBy = "outgoingDocuments")
     private List<Subdivisions> subdivision;
 
+    @Column(name = "EXECUTOR_ID")
+    private String executor;
+
     @Column(name = "REG_NUMBER")
     private String regNumber;
 
@@ -37,9 +40,6 @@ public class OutgoingDocuments extends StandardEntity {
 
     @Column(name = "ADDRESSEE")
     private String addressee;
-
-    @Column(name = "EXECUTOR")
-    private String executor;
 
     @Column(name = "SIGNATORY")
     private String signatory;
@@ -64,44 +64,44 @@ public class OutgoingDocuments extends StandardEntity {
     @Column(name = "STATE")
     private String state;
 
-    public List<Subdivisions> getSubdivision() {
-        return subdivision;
-    }
-
-    public void setSubdivision(List<Subdivisions> subdivision) {
-        this.subdivision = subdivision;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public String getExecutor() {
-        return executor;
-    }
-
-    public void setExecutor(String executor) {
-        this.executor = executor;
-    }
-
-    public String getSignatory() {
-        return signatory;
-    }
-
-    public void setSignatory(String signatory) {
-        this.signatory = signatory;
-    }
-
     public void setState(String state) {
         this.state = state;
     }
 
     public String getState() {
         return state;
+    }
+
+    public void setExecutor(String executor) {
+        this.executor = executor;
+    }
+
+    public String getExecutor() {
+        return executor;
+    }
+
+    public void setSignatory(String signatory) {
+        this.signatory = signatory;
+    }
+
+    public String getSignatory() {
+        return signatory;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public List<Subdivisions> getSubdivision() {
+        return subdivision;
+    }
+
+    public void setSubdivision(List<Subdivisions> subdivision) {
+        this.subdivision = subdivision;
     }
 
     public String getName() {

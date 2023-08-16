@@ -5,5 +5,6 @@
         <item screen="doc_Employees.browse" caption="mainMsg://menu_config.doc_Employees.browse"/>
         <item screen="doc_Subdivisions.browse" caption="mainMsg://menu_config.doc_Subdivisions.browse"/>
         <item screen="docs_OutgoingDocuments.browse" caption="mainMsg://menu_config.docs_OutgoingDocuments.browse"/>
+        <item screen="screen" caption="mainMsg://menu_config.screen"/>
     </menu>
 </menu-config>

@@ -27,13 +27,21 @@ public class Subdivisions extends StandardEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private Employees divisionHead;
 
+    @JoinColumn(name = "LEAD_DIVISION_ID", unique = true)
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "LEAD_DIVISION_ID")
     private Subdivisions leadDivision;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "OUTGOING_DOCUMENTS_ID")
     private OutgoingDocuments outgoingDocuments;
+
+    public void setLeadDivision(Subdivisions leadDivision) {
+        this.leadDivision = leadDivision;
+    }
+
+    public Subdivisions getLeadDivision() {
+        return leadDivision;
+    }
 
 
     public OutgoingDocuments getOutgoingDocuments() {
@@ -50,14 +58,6 @@ public class Subdivisions extends StandardEntity {
 
     public void setDivisionHead(Employees divisionHead) {
         this.divisionHead = divisionHead;
-    }
-
-    public Subdivisions getLeadDivision() {
-        return leadDivision;
-    }
-
-    public void setLeadDivision(Subdivisions leadDivision) {
-        this.leadDivision = leadDivision;
     }
 
     public String getName() {

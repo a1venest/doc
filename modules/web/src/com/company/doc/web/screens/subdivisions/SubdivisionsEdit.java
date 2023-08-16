@@ -1,7 +1,9 @@
 package com.company.doc.web.screens.subdivisions;
 
+import com.haulmont.cuba.gui.model.InstanceContainer;
 import com.haulmont.cuba.gui.screen.*;
 import com.company.doc.entity.Subdivisions;
+import com.haulmont.cuba.gui.sys.AttributeAccessSupport;
 
 import javax.inject.Inject;
 

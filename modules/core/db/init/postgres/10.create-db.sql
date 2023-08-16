@@ -48,12 +48,12 @@ create table DOCS_OUTGOING_DOCUMENTS (
     DELETED_BY varchar(50),
     --
     DOC_TYPE_ID uuid not null,
+    EXECUTOR_ID varchar(255),
     REG_NUMBER varchar(255),
     REG_DATA date,
     WHOM varchar(255),
     THEME varchar(255),
     ADDRESSEE varchar(255),
-    EXECUTOR varchar(255),
     SIGNATORY varchar(255),
     NOTE varchar(255),
     NAME varchar(255),
@@ -79,7 +79,6 @@ create table DOC_EMPLOYEES (
     NUMBER_ varchar(255),
     USER_ID uuid,
     PHONE varchar(255),
-    SUBDIVISION_ID uuid,
     PHOTO_ID uuid,
     --
     primary key (ID)
