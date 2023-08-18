@@ -1,6 +1,7 @@
 package com.company.doc.entity;
 
 import com.haulmont.chile.core.annotations.NamePattern;
+import com.haulmont.cuba.core.entity.FileDescriptor;
 import com.haulmont.cuba.core.entity.StandardEntity;
 
 import javax.persistence.*;
@@ -18,6 +19,10 @@ public class OutgoingDocuments extends StandardEntity {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "DOC_TYPE_ID")
     private DocumentType docType;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn
+    private FileDescriptor document;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "INITIATOR_ID")
@@ -76,6 +81,14 @@ public class OutgoingDocuments extends StandardEntity {
 
     @Column(name = "ACCEPTANCE_REQUIRED")
     protected Boolean acceptanceRequired = false;
+
+    public FileDescriptor getDocument() {
+        return document;
+    }
+
+    public void setDocument(FileDescriptor document) {
+        this.document = document;
+    }
 
     public void setDivisionHead(Employees divisionHead) {
         this.divisionHead = divisionHead;

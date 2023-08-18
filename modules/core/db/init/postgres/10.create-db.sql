@@ -48,6 +48,7 @@ create table DOCS_OUTGOING_DOCUMENTS (
     DELETED_BY varchar(50),
     --
     DOC_TYPE_ID uuid not null,
+    DOCUMENT_ID uuid,
     INITIATOR_ID uuid,
     EXECUTOR_ID uuid,
     DIVISIONHEAD_ID uuid,
