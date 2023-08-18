@@ -16,7 +16,7 @@
                 </property>
                 <property name="subdivision" view="_minimal"/>
                 <property name="photo" view="_base"/>
-                <property name="outgoingDocuments" view="_minimal"/>
+
             </view>
             <loader id="employeesesDl">
                 <query>
@@ -47,7 +47,6 @@
                 <column id="user"/>
                 <column id="phone"/>
                 <column id="subdivision"/>
-                <column id="outgoingDocuments"/>
             </columns>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"

@@ -7,10 +7,13 @@
         <instance id="employeesDc"
                   class="com.company.doc.entity.Employees">
             <view extends="_local">
-                <property name="user" view="_minimal"/>
+                <property name="user" view="_minimal">
+                <property name="firstName"/>
+                <property name="lastName"/>
+                <property name="middleName"/></property>
                 <property name="subdivision" view="_minimal"/>
-                <property name="photo" view="_minimal"/>
-                <property name="outgoingDocuments" view="_minimal"/>
+                <property name="photo" view="_base"/>
+
             </view>
             <loader/>
         </instance>
@@ -18,15 +21,19 @@
     <dialogMode height="600"
                 width="800"/>
     <layout expand="editActions" spacing="true">
+
         <form id="form" dataContainer="employeesDc">
             <column width="350px">
-                <textField id="numberField" property="number"/>
+                <textField id="numberField" property="number" editable="false"/>
                 <pickerField id="userField" property="user">
                     <actions>
                         <action id="lookup" type="picker_lookup"/>
                         <action id="clear" type="picker_clear"/>
                     </actions>
                 </pickerField>
+                <textField id="firstNameField" property="user.firstName" editable="false"/>
+                <textField id="middleNameField" property="user.middleName" editable="false"/>
+                <textField id="lastNameField" property="user.lastName" editable="false"/>
                 <textField id="phoneField" property="phone"/>
                 <pickerField id="subdivisionField" property="subdivision">
                     <actions>
@@ -35,7 +42,7 @@
                     </actions>
                 </pickerField>
                 <upload id="photoField" fileStoragePutMode="IMMEDIATE" property="photo" showFileName="true"/>
-                <pickerField id="outgoingDocumentsField" property="outgoingDocuments"/>
+                <image id="photo" dataContainer="employeesDc" property="photo"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">
