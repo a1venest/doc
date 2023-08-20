@@ -32,7 +32,7 @@ public class OutgoingDocuments extends StandardEntity {
     private List<Subdivisions> subdivision;
 
     @JoinColumn(name = "EXECUTOR_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     private Employees executor;
 
     @ManyToOne(fetch = FetchType.LAZY)

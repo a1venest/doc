@@ -5,11 +5,16 @@
         messagesPack="com.company.doc.web.screens.outgoingdocuments">
     <data>
         <instance id="outgoingDocumentsDc"
-                  class="com.company.doc.entity.OutgoingDocuments">
+                  class="com.company.doc.entity.OutgoingDocuments"
+                  view="outgoingDocuments-view">
+
+            <loader id="outgoingDocumentsDl"/>
+        </instance>
+        <instance id="docTypeDC"
+        class="com.company.doc.entity.OutgoingDocuments">
             <view extends="_local">
                 <property name="docType" view="_minimal"/>
             </view>
-            <loader id="outgoingDocumentsDl"/>
         </instance>
         <instance id="procTaskDc"
                   class="com.haulmont.bpm.entity.ProcTask">
