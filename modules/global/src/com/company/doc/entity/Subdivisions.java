@@ -5,10 +5,11 @@ import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.cuba.core.entity.annotation.Listeners;
 import com.haulmont.cuba.core.entity.annotation.PublishEntityChangedEvents;
 
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Listeners("doc_SubdivisionsCodeCreator")
+@Listeners({"doc_SubdivisionsCodeCreator","doc_LeadDivisionListener"})
 @PublishEntityChangedEvents
 @Table(name = "DOC_SUBDIVISIONS")
 @Entity(name = "doc_Subdivisions")
@@ -27,7 +28,7 @@ public class Subdivisions extends StandardEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     private Employees divisionHead;
 
-    @JoinColumn(name = "LEAD_DIVISION_ID", unique = true)
+    @JoinColumn(name = "LEAD_DIVISION_ID")
     @ManyToOne(fetch = FetchType.LAZY)
     private Subdivisions leadDivision;
 
@@ -36,8 +37,8 @@ public class Subdivisions extends StandardEntity {
     private OutgoingDocuments outgoingDocuments;
 
     public void setLeadDivision(Subdivisions leadDivision) {
-        this.leadDivision = leadDivision;
-    }
+        this.leadDivision = leadDivision; }
+
 
     public Subdivisions getLeadDivision() {
         return leadDivision;
@@ -76,5 +77,15 @@ public class Subdivisions extends StandardEntity {
         this.code = code;
     }
 
+
+    public boolean equals(Subdivisions leadDivision){
+        if(this == leadDivision) return  true;
+        if (leadDivision == null || getClass() != leadDivision.getClass()) return false;
+
+        Subdivisions subdivisions = (Subdivisions) leadDivision;
+        return leadDivision.equals(subdivisions.leadDivision);
+    }
+    @Override
+    public int hashCode() {return leadDivision.hashCode();}
 
 }

@@ -12,4 +12,6 @@ import javax.inject.Inject;
 @EditedEntityContainer("subdivisionsDc")
 @LoadDataBeforeShow
 public class SubdivisionsEdit extends StandardEditor<Subdivisions> {
+
+
 }
