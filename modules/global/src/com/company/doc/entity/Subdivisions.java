@@ -9,7 +9,7 @@ import com.haulmont.cuba.core.entity.annotation.PublishEntityChangedEvents;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
-@Listeners({"doc_SubdivisionsCodeCreator","doc_LeadDivisionListener"})
+@Listeners({"doc_SubdivisionsCodeCreator"})
 @PublishEntityChangedEvents
 @Table(name = "DOC_SUBDIVISIONS")
 @Entity(name = "doc_Subdivisions")
@@ -85,7 +85,6 @@ public class Subdivisions extends StandardEntity {
         Subdivisions subdivisions = (Subdivisions) leadDivision;
         return leadDivision.equals(subdivisions.leadDivision);
     }
-    @Override
-    public int hashCode() {return leadDivision.hashCode();}
+
 
 }
